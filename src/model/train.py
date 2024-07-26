@@ -3,16 +3,18 @@
 import argparse
 import glob
 import os
+import mlflow
 
 import pandas as pd
 
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 
 
 # define functions
 def main(args):
     # TO DO: enable autologging
-
+    mlflow.autolog()
 
     # read data
     df = get_csvs_df(args.training_data)
@@ -34,7 +36,18 @@ def get_csvs_df(path):
 
 
 # TO DO: add function to split data
+def split_data(df):
+    # Ensure 'X' and 'y' columns exist in dataframe
+    if 'X' not in df.columns or 'y' not in df.columns:
+        raise RuntimeError("Dataframe must contain 'X' and 'y' columns")
 
+    X = df.drop(columns='y')
+    y = df['y']
+
+    # Split data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.05, random_state=0)
+    return X_train, X_test, y_train, y_test
+    
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
