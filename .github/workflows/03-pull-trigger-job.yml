@@ -1,0 +1,13 @@
+name: Trigger when pull req is made
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a placeholder script
+        run: |
+          echo "Will add code checks here in next challenge"
