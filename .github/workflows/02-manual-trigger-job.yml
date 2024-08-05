@@ -6,8 +6,8 @@ on:
     branches: [ main ]
 
 env:
-  workspace-name: myWorkspace # name of the Azure Machine Learning workspace
-  resource-group: myResourceGroup # name of the Azure resource group
+  workspace-name: myWorkspace 
+  resource-group: myResourceGroup 
 
 permissions:
   id-token: write
