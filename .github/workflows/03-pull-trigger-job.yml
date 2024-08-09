@@ -1,7 +1,7 @@
 name: Trigger when pull req is made
 
 on:
-  pull_request:
+  push_request:
     branches: [ main ]
 
 jobs:
