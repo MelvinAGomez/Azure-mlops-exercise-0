@@ -1,9 +1,8 @@
 name: Code checks
 
 on:
-  workflow_run:
-    workflows: ["Trigger when pull req is made"]
-
+  pull_request:
+    branches: [ main ]
 
 jobs:
   linting:
@@ -25,3 +24,11 @@ jobs:
       - name: Run linting tests
         run: |
           flake8 src/model/
+
+  placeholder:
+    name: Placeholder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a placeholder script
+        run: |
+          echo "Will add code checks here in next challenge"
