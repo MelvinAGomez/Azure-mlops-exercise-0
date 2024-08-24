@@ -3,8 +3,7 @@ name: Code checks
 on:
   workflow_run:
     workflows: ["Trigger when pull req is made"]
-    types:
-      - completed
+
 
 jobs:
   linting:
